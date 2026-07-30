@@ -1,10 +1,17 @@
 import sys
 from pathlib import Path
 
+_main_dir = str(Path(__file__).resolve().parent)
+_parent_dir = str(Path(__file__).resolve().parent.parent)
+
+if _main_dir not in sys.path:
+    sys.path.insert(0, _main_dir)
+
 try:
     from routes import router
 except ImportError:
-    sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+    if _parent_dir not in sys.path:
+        sys.path.insert(0, _parent_dir)
     from api.routes import router
 
 import uvicorn
