@@ -1,12 +1,15 @@
 import sys
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+try:
+    from routes import router
+except ImportError:
+    sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+    from api.routes import router
 
 import uvicorn
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from routes import router
 
 app = FastAPI(
     title="Home Automation - Device Gateway",
