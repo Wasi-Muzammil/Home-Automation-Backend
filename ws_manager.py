@@ -1,6 +1,6 @@
 from fastapi import WebSocket
 from typing import Dict, Optional
-from .models import DeviceInfo, RelayState
+from models import DeviceInfo, RelayState
 
 
 class ConnectionManager:

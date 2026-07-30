@@ -1,9 +1,9 @@
 from fastapi import APIRouter, HTTPException, WebSocket, WebSocketDisconnect
-from ..models import (
+from models import (
     DeviceRegisterRequest, DeviceRegisterResponse,
     DeviceInfo, RelayCommand, StateUpdate, RelayState,
 )
-from ..ws_manager import manager
+from ws_manager import manager
 import json
 from datetime import datetime, timezone
 
